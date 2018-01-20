@@ -1,0 +1,74 @@
+body {
+    background-color: #232323;
+    color: white;
+    margin: 0;
+    font-family: "Showcard Gothic";
+}
+
+.selected {
+    background-color: steelblue;
+    color: white;
+}
+
+#stripe {
+    background-color: white;
+    height: 30px;
+    color: black;
+    text-align: center;
+}
+
+h1 {
+    text-align: center;
+    background-color: steelblue;
+    margin: 0;
+    font-weight: normal;
+    text-transform: uppercase;
+    padding: 20px 0;
+}
+
+#colorDisplay {
+    font-size: 180%;
+}
+
+.container {
+    margin: 20px auto;
+    max-width: 600px;
+    
+}
+.square {
+    background-color: blueviolet;
+    width: 30%;
+    padding-bottom: 30%;
+    margin: 1.66%;
+    float: left;
+    border-radius: 15%;
+    transition: background 0.5s;
+    -webkit-transition: background 0.5s;
+    -moz-transition: background 0.5s;
+}
+
+button {
+    border: none;
+    background: none;
+    text-transform: uppercase;
+    height: 100%;
+    color: steelblue;
+    font-weight: 700;
+    letter-spacing: 1px;
+    font-size: inherit;
+    transition: all 0.25s;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    outline: none;
+}
+}
+
+button:hover {
+    background-color: steelblue;
+    color: white;
+}
+
+#messageDisplay {
+    width: 20%;
+    display: inline-block;
+}
