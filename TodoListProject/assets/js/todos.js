@@ -3,6 +3,10 @@ $("ul").on("click","li", function(){
   $(this).toggleClass("completed");
 });
 
+$(".fa-coffee").click(function(){
+	$("input[type='text']").fadeToggle();
+});
+
 //Click on X to delete Todo item
 $("ul").on("click","span", function(){
   $(this).parent().fadeOut(350, function(){
@@ -18,8 +22,4 @@ $("input[type='text']").keypress(function(event){
     $(this).val("");
     $("ul").append("<li><span><i class='far fa-trash-alt'></i></span> " + newTodo + "</li>");
   }
-});
-
-$(".fa-coffee").click(function(){
-	$("input[type='text']").fadeToggle();
 });

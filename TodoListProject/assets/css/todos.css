@@ -45,7 +45,6 @@ li:nth-child(2n){
   float: right;
 }
 span{
-  height: 40px;
   background-color: #e74c3c;
   margin-right: 20px;
   text-align: center;
@@ -54,6 +53,10 @@ span{
   display: inline-block;
   transition: 0.2s linear;
   opacity: 0;
+}
+
+li,span{
+  height: 40px;
 }
 
 li:hover span{
@@ -66,6 +69,7 @@ input{
   width: 100%;
   background: #f7f7f7;
   box-sizing: border-box;
+  -webkit-box-sizing;
   padding: 13px 13px 13px 20px;
   border: 3px solid #f7f7f7;
 }
