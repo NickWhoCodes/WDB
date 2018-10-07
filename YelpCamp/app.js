@@ -1,10 +1,14 @@
-var express     = require('express'),
-    app         = express(),
-    bodyParser  = require('body-parser'),
-    mongoose    = require('mongoose'),
-    Campground  = require('./models/campground'),
-    Comment     = require('./models/comment'),
-    seedDB      = require('./seeds');
+var express         = require('express'),
+    app             = express(),
+    bodyParser      = require('body-parser'),
+    mongoose        = require('mongoose'),
+    Campground      = require('./models/campground'),
+    Comment         = require('./models/comment'),
+    User            = require('./models/user'),
+    seedDB          = require('./seeds'),
+    passport        = require('passport'),
+    LocalStrategy   = require('passport-local');
+
 
 mongoose.connect('mongodb://localhost:27017/yelp_camp', { useNewUrlParser: true });
 app.set('view engine', 'ejs');
@@ -63,7 +67,6 @@ app.get('/campgrounds/:id', function(req, res) {
 })
 
 // COMMENTS ROUTES
-
 app.get('/campgrounds/:id/comments/new', function(req, res) {
     // find campground by id
     Campground.findById(req.params.id, function(err, campground) {
@@ -92,9 +95,6 @@ app.post('/campgrounds/:id/comments', function(req, res) {
             })
         }
     })
-    //create new comment
-    //connect new comment to campground
-    //redirect campground show page
 })
 
 app.listen(3000, function() {
