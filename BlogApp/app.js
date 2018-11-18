@@ -1,3 +1,4 @@
+require('dotenv').config();
 var bodyParser          = require('body-parser'),
     methodOverride      = require('method-override'),
     expressSanitizer    = require('express-sanitizer'),
@@ -6,7 +7,8 @@ var bodyParser          = require('body-parser'),
     app                 = express();
 
 // APP CONFIG
-mongoose.connect('mongodb://localhost:27017/blog_app', { useNewUrlParser: true });
+// mongoose.connect('mongodb://localhost:27017/blog_app', { useNewUrlParser: true });
+mongoose.connect(process.env.DATABASEURL, { useNewUrlParser: true });
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({extended: true}));
@@ -27,6 +29,8 @@ var Blog = mongoose.model('Blog', blogSchema);
 //     image: 'https://images.unsplash.com/photo-1532012197267-da84d127e765?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=9c61d76abcdd6b0f7ef174e0da66a18d&auto=format&fit=crop&w=500&q=60',
 //     body: 'First blog post!'
 // })
+
+mongoose.connect(process.env.DATABASEURL, { useNewUrlParser: true });
 
 // RESTFUL ROUTES
 app.get('/', function(req, res) {
@@ -108,6 +112,4 @@ app.delete('/blogs/:id', function(req, res) {
 })
 
 
-app.listen(3000, function() {
-    console.log('The server has started!');
-})
+app.listen(process.env.PORT || 3000, process.env.IP);
